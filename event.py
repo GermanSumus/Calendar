@@ -1,6 +1,7 @@
-from sanitize import sani_datetime
+from sanitize import sani_date
 
 class Event(object):
     """An event with datetime features """
     def __init__(self):
-        self.datetime = sani_datetime()
+        self.date = sani_date()
+        self.time = sani_date()

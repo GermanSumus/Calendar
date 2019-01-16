@@ -25,4 +25,4 @@ def add_event():
     if test_usr('Need to add something?'):
         print("YOU GOT IT, ONE EVENT OBJECT COMING RIGHT AFTER THESE MESSAGES")
         e_obj = Event()
-        print(e_obj.datetime)
+        print(e_obj.date)
