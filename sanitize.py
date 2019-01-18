@@ -5,7 +5,7 @@ def test_usr(msg):
     usr = input(f'{msg} Yes or No? (Y, N) ')
     valid = False
     while not valid:
-        if usr.lower() in 'yn':
+        if usr.lower() in ' yn':
             valid = True
             if usr.lower() == 'y':
                 return True
@@ -55,7 +55,25 @@ def sani_date():
     date = datetime.datetime.strptime(f'{year} {month} {day}', '%Y %m %d')
 
     return date
-    
+
 def sani_time():
     """Returns a valid time string to be interpreted as a datetime object"""
-    time = input('Enter in time')
+    time = input('Enter in time "x:xx" : ')
+    valid = False
+    while not valid:
+        t = time.replace(':', '', 1)
+        t = t.replace(' ', '')
+        if t.isdigit() and len(t) >= 3:
+            if int(t[-2:]) < 60:
+                if int(t[0]) == 0:
+                    t = t.replace('0', '', 1)
+                if len(t) == 4:
+                    if int(t[:2]) < 13:
+                        valid = True
+                else:
+                    valid = True
+            else:
+                time = input('Enter in time "x:xx" : ')
+        else:
+            time = input('Enter in time "x:xx" : ')
+    test_usr('Is this in the morning?')
