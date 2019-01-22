@@ -1,8 +1,8 @@
-import datetime
+from datetime import datetime
 
-current_year = datetime.datetime.now().year
-current_month = datetime.datetime.now().month
-current_day = datetime.datetime.now().day
+current_year = datetime.now().year
+current_month = datetime.now().month
+current_day = datetime.now().day
 val_err = 'Input must be a number.'
 
 def test_usr(msg):
@@ -79,28 +79,44 @@ def sani_date():
     month = get_month(year)
     day = get_day(year, month)
 
-    date = datetime.datetime.strptime(f'{year} {month} {day}', '%Y %m %d')
+    date = datetime.strptime(f'{month} {day} {year}', '%m %d %Y').date()
 
     return date
 
+def get_hour():
+    """Returns desired hour in the form of an integer."""
+    while True:
+        hour = input('\nEnter in hour: ')
+        
+        if hour.isdigit():
+            hour = int(hour)
+
+            if hour in range(24):
+                return hour
+            else:
+                print(f'Hour must be between 0 and 23.')
+        else:
+            print(val_err)
+
+def get_minute():
+    """Returns desired minute in the form of an integer."""
+    while True:
+        minute = input('\nEnter in minute: ')
+        
+        if minute.isdigit():
+            minute = int(minute)
+
+            if minute in range(60):
+                return minute
+            else:
+                print(f'Minute must be between 0 and 59.')
+        else:
+            print(val_err)
+
 def sani_time():
     """Returns a valid time string to be interpreted as a datetime object"""
-    time = input('Enter in time "x:xx" : ')
-    valid = False
-    while not valid:
-        t = time.replace(':', '', 1)
-        t = t.replace(' ', '')
-        if t.isdigit() and len(t) >= 3:
-            if int(t[-2:]) < 60:
-                if int(t[0]) == 0:
-                    t = t.replace('0', '', 1)
-                if len(t) == 4:
-                    if int(t[:2]) < 13:
-                        valid = True
-                else:
-                    valid = True
-            else:
-                time = input('Enter in time "x:xx" : ')
-        else:
-            time = input('Enter in time "x:xx" : ')
-    test_usr('Is this in the morning?')
+    hour = get_hour()
+    minute = get_minute()
+    time = f'{hour}:{minute}'
+
+    return time
