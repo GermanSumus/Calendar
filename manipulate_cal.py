@@ -1,5 +1,5 @@
 import datetime
-from sanitize import test_usr
+from sanitize import test_usr, sani_date, sani_time
 from event import Event
 
 def make_year(year=datetime.datetime.now().year):
@@ -24,5 +24,7 @@ def make_year(year=datetime.datetime.now().year):
 def add_event():
     if test_usr('Need to add something?'):
         print("YOU GOT IT, ONE EVENT OBJECT COMING RIGHT AFTER THESE MESSAGES")
-        e_obj = Event()
-        print(e_obj.date)
+        
+        e_obj = Event(sani_date(), sani_time())
+
+        e_obj.print_event_details()
