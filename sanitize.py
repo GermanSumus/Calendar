@@ -1,5 +1,11 @@
 import datetime
 
+current_year = datetime.datetime.now().year
+current_month = datetime.datetime.now().month
+current_day = datetime.datetime.now().day
+date_err = 'Date error, try again.'
+val_err = 'Value error, try again'
+
 def test_usr(msg):
     """Return bool on user input given message (Y,N)"""
     usr = input(f'{msg} Yes or No? (Y, N) ')
@@ -12,46 +18,68 @@ def test_usr(msg):
         else:
             usr = input(f'{msg} Yes or No? (Y, N) ')
 
+def get_year():
+    """Returns desired year in the form of an integer."""
+    while True:
+        year = input('Enter in Year xxxx: ')
+
+        if year.isdigit():
+            year = int(year)
+
+            if year < current_year:
+                print(date_err)
+            else:
+                return year
+        else:
+            print(val_err)
+
+def get_month(year):
+    """Returns desired month in the form of an integer."""
+    while True:
+        month = input('Enter in month: ')
+
+        if month.isdigit():
+            month = int(month)
+
+            if year == current_year:
+                if month in range(current_month, 13):
+                    return month
+                else:
+                    print(date_err)
+            elif month in range(1, 13):
+                return month
+            else:
+                print(date_err)
+        else:
+            print(val_err)
+
+def get_day(year, month):
+    """Returns desired day in the form of an integer."""
+    while True:
+        day = input('Enter in day: ')
+
+        if day.isdigit():
+            day = int(day)
+
+            if year == current_year and month == current_month:
+                if day in range(current_day, 32):
+                    return day
+                else:
+                    print(date_err)
+            elif day in range(1, 32):
+                return day
+            else:
+                print(date_err)
+        else:
+            print(val_err)
+
+
 def sani_date():
     """Returns a valid datetime object from the datetime library"""
-    year = input('Enter in Year xxxx: ')
-    valid = False
-    while not valid:
-        if year.isdigit():
-            if int(year) < datetime.datetime.now().year:
-                print('Date error, try again.')
-                year = input('Enter in Year xxxx: ')
-            else:
-                valid = True
-        else:
-            print('Value error, try again')
-            year = input('Enter in Year xxxx: ')
-    valid = False
+    year = get_year()
+    month = get_month(year)
+    day = get_day(year, month)
 
-    month = input('Enter in month: ')
-    while not valid:
-        if month.isdigit():
-            if int(month) < datetime.datetime.now().month and int(month) < 13:
-                print('Date error, try again.')
-                month = input('Enter in month: ')
-            else:
-                valid = True
-        else:
-            print('Value error, try again')
-            month = input('Enter in month: ')
-    valid = False
-
-    day = input('Enter in day: ')
-    while not valid:
-        if day.isdigit():
-            if int(day) < datetime.datetime.now().day:
-                print('Date error, try again.')
-                day = input('Enter in day: ')
-            else:
-                valid = True
-        else:
-            print('Value error, try again')
-            year = input('Enter in day: ')
     date = datetime.datetime.strptime(f'{year} {month} {day}', '%Y %m %d')
 
     return date
