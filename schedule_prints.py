@@ -13,14 +13,17 @@ import datetime
 from evaluate_calendar import read_cal
 from manipulate_cal import make_year
 
-def weekly_schedule(cal_file_path='cal.dict', now=datetime.datetime.now().date()):
+def weekly_schedule(cal_file_path='cal.dict', now=datetime.datetime.now()):
     """Print out the weeks schedule for humans to read"""
     cal = read_cal()
-    if len(cal) < 1:
-        cal = make_year()
+    
+    if len(cal) < 1: cal = make_year()
 
-    print(f'\n{now} \n***DAYS***\n{now + datetime.timedelta(days=7)}\n')
-    for x in range(8):
+    #print(f'\n{now} \n***DAYS***\n{now + datetime.timedelta(days=6)}\n')
+    print("\nPREVIEW OF THE WEEK")
+    
+    for x in range(7):
         date = now + datetime.timedelta(days=x)
         day_events = cal[date.year][date.month][now.day]
-        print('\t', now + datetime.timedelta(days=x), day_events)
+
+        print('\t', date.strftime('%B %d, %Y'), day_events)
