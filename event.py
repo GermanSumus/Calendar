@@ -8,8 +8,8 @@ class Event():
         self.date = date.strftime('%B %d, %Y')
         self.time = date.strftime('%H:%M')
 
-    def print_event_details(self):
-        print(f'\nEvent scheduled for {self.day}, {self.date} at {self.time}.')
+    def __str__(self):
+        return f'\nEvent scheduled for {self.day}, {self.date} at {self.time}.'
 
     def get_date(self):
         return self.date
