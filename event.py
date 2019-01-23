@@ -1,7 +1,15 @@
-from sanitize import sani_date
+from datetime import datetime
 
-class Event(object):
+class Event():
     """An event with datetime features """
-    def __init__(self):
-        self.date = sani_date()
-        self.time = sani_date()
+    def __init__(self, date):
+        self.date = date
+        self.day = date.strftime('%A')
+        self.date = date.strftime('%B %d, %Y')
+        self.time = date.strftime('%H:%M')
+
+    def print_event_details(self):
+        print(f'\nEvent scheduled for {self.day}, {self.date} at {self.time}.')
+
+    def get_date(self):
+        return self.date
