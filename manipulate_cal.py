@@ -23,8 +23,7 @@ def make_year(year=datetime.datetime.now().year):
 
 def add_event():
     if test_usr('\nNeed to add something?'):
-        print("\nYOU GOT IT, ONE EVENT OBJECT COMING RIGHT AFTER THESE MESSAGES")
-
+        print("\nCREATE EVENT")
         e_obj = Event(get_datetime_obj())
 
         print(e_obj)
