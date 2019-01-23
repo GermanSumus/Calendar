@@ -5,7 +5,7 @@ val_err = 'Input must be a number.'
 def test_usr(msg):
     """Return bool on user input given message (Y,N)"""
     while True:
-        usr = input(f'{msg} Yes or No? (Y, N) ')
+        usr = input(f'{msg} (y, n): ')
 
         if usr.lower() == 'y': return True
 
