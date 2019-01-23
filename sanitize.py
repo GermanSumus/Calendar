@@ -13,7 +13,7 @@ def test_usr(msg):
 
 
 def get_year():
-    """Returns desired year as a string."""
+    """Returns desired year as an integer."""
     while True:
         year = input('\nYear: ')
 
@@ -23,7 +23,7 @@ def get_year():
 
 
 def get_month():
-    """Returns desired month as a string."""
+    """Returns desired month as an integer."""
     while True:
         month = input('\nMonth: ')
 
@@ -38,7 +38,7 @@ def get_month():
 
 
 def get_day():
-    """Returns desired day as a string."""
+    """Returns desired day as an integer."""
     while True:
         day = input('\nDay: ')
 
@@ -53,7 +53,7 @@ def get_day():
 
 
 def get_hour():
-    """Returns desired hour as a string."""
+    """Returns desired hour as an integer."""
     while True:
         hour = input('\nHour: ')
         
@@ -68,7 +68,7 @@ def get_hour():
 
 
 def get_minute():
-    """Returns desired minute as a string."""
+    """Returns desired minute as an integer."""
     while True:
         minute = input('\nMinute: ')
         
