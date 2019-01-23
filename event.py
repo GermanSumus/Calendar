@@ -2,17 +2,15 @@ from datetime import datetime
 
 class Event():
     """An event with datetime features """
-    def __init__(self, date, time):
+    def __init__(self, date):
         self.date = date
-        self.time = time
 
     def print_event_details(self):
-        formatted_date = self.date.strftime('%A, %B %d, %Y')
+        day = self.date.strftime('%A')
+        date = self.date.strftime('%B %d, %Y')
+        time = self.date.strftime('%H:%M')
         
-        print(f'\nEvent scheduled for {formatted_date} at {self.time}.')
+        print(f'\nEvent scheduled for {day}, {date} at {time}.')
 
     def get_date(self):
         return self.date
-
-    def get_time(self):
-        return self.time
