@@ -14,7 +14,7 @@ class Event():
         return f'\nEvent scheduled for {self.day}, {self.date} at {self.time}.'
 
     def move(self, week=0, day=0, hour=0, minute=0):
-        self.date = self.date + timedelta(weeks=week, days=day, hours=hour, minutes=minute)
+        self.date += timedelta(weeks=week, days=day, hours=hour, minutes=minute)
 
     def get_date(self):
         return self.date
