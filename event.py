@@ -4,13 +4,12 @@ class Event():
     """An event with datetime features """
     def __init__(self, date):
         self.date = date
+        self.day = date.strftime('%A')
+        self.date = date.strftime('%B %d, %Y')
+        self.time = date.strftime('%H:%M')
 
     def print_event_details(self):
-        day = self.date.strftime('%A')
-        date = self.date.strftime('%B %d, %Y')
-        time = self.date.strftime('%H:%M')
-        
-        print(f'\nEvent scheduled for {day}, {date} at {time}.')
+        print(f'\nEvent scheduled for {self.day}, {self.date} at {self.time}.')
 
     def get_date(self):
         return self.date
