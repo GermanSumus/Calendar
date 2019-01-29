@@ -16,12 +16,12 @@ from manipulate_cal import make_year
 def weekly_schedule(cal_file_path='cal.dict', now=datetime.datetime.now()):
     """Print out the weeks schedule for humans to read"""
     cal = read_cal()
-    
+
     if len(cal) < 1: cal = make_year()
 
     #print(f'\n{now} \n***DAYS***\n{now + datetime.timedelta(days=6)}\n')
     print("\nPREVIEW OF THE WEEK")
-    
+    # BUG IN THE NEXT LINES BELOW. DATE CANT GO PAST 1/31/2019.
     for x in range(7):
         date = now + datetime.timedelta(days=x)
         day_events = cal[date.year][date.month][now.day]
