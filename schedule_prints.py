@@ -24,6 +24,6 @@ def weekly_schedule(cal_file_path='cal.dict', now=datetime.datetime.now()):
     # BUG IN THE NEXT LINES BELOW. DATE CANT GO PAST 1/31/2019.
     for x in range(7):
         date = now + datetime.timedelta(days=x)
-        day_events = cal[date.year][date.month][now.day]
+        day_events = cal[date.year][date.month][date.day]
 
         print('\t', date.strftime('%B %d, %Y'), day_events)
