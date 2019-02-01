@@ -2,8 +2,11 @@
 A CLI calendar event manager. 
 
 ## Event Object Attributes
-[] self.datetime
-self.description
-self.day
-self.date
-self.time
+- datetime
+  - a datetime object
+- description
+  - string describing event 
+- day
+  -
+- date
+- time
