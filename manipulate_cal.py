@@ -1,5 +1,5 @@
 import datetime
-from sanitize import test_usr, get_datetime_obj
+from sanitize import test_usr, get_datetime_obj, description
 from event import Event
 from evaluate_calendar import write_to_cal
 
@@ -25,6 +25,6 @@ def make_year(year=datetime.datetime.now().year):
 def add_event():
     if test_usr('\nNeed to add something?'):
         print("\nCREATE EVENT")
-        e_obj = Event(get_datetime_obj())
+        e_obj = Event(get_datetime_obj(), description())
         write_to_cal(e_obj)
         print(f'{e_obj} Added to calendar')
