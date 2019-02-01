@@ -4,9 +4,10 @@ from datetime import datetime, timedelta
 class Event():
     """An event with datetime features """
 
-    def __init__(self, date):
+    def __init__(self, date, description):
         self.datetime = date
         self.update(self.datetime)
+        self.description = description
 
     def update(self, date):
         self.day = date.strftime('%A')
