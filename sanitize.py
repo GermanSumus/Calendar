@@ -1,4 +1,5 @@
 from datetime import datetime
+
 from calendar import monthrange
 
 val_err = 'Input must be a number.'
