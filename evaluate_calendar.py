@@ -7,14 +7,6 @@ def read_cal(cal_file_path='cal.dict'):
             return load(file, parse_int=True)
         except:
             return {}
-        try:
-            return eval(file.read())
-        except SyntaxError:
-            with open(cal_file_path, 'w') as file:
-                file.write('{}')
-        finally:
-            with open(cal_file_path) as file:
-                return eval(file.read())
 
 def write_to_cal(event, cal_file_path='cal.dict'):
     cal = read_cal()
