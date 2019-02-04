@@ -18,7 +18,7 @@ class Event():
         self.month = date.strftime('%-m')
 
     def __str__(self):
-        return f'\n{self.description} scheduled for {self.day}, {self.date} at {self.time}.'
+        return f'\n{self.description.title()} scheduled for {self.day}, {self.date} at {self.time}.'
 
     def move(self, week=0, day=0, hour=0, minute=0):
         self.datetime += timedelta(weeks=week, days=day, hours=hour, minutes=minute)
