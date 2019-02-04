@@ -7,3 +7,5 @@ A CLI calendar event manager.
 - day
 - date
 - time
+- year
+- month
