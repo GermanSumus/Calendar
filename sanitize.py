@@ -96,5 +96,5 @@ def get_datetime_obj():
     return date
 
 def description():
-    d = input(“Add a description.”)
-    return d
+    x = input('Add a description.')
+    return x
