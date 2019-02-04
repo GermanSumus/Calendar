@@ -4,6 +4,7 @@ Return the weeks schedule in a human readable by reading our calendar.
 A week is seven days from today.
 """
 import datetime
+
 from evaluate_calendar import read_cal
 from manipulate_cal import make_year
 
