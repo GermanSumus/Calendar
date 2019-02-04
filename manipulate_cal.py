@@ -30,4 +30,4 @@ def add_event():
         print("\nCREATE EVENT")
         e_obj = Event(get_datetime_obj(), description())
         write_to_cal(e_obj)
-        print(f'{e_obj} Added to calendar')
+        print(f'{e_obj}')
