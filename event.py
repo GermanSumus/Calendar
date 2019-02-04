@@ -14,6 +14,7 @@ class Event():
         self.date = date.strftime('%B %d, %Y')
         self.time = date.strftime('%H:%M')
         self.year = date.strftime('%Y')
+        # The following strftime is platform dependent
         self.month = date.strftime('%-m')
 
     def __str__(self):
@@ -25,5 +26,3 @@ class Event():
 
     def get_date(self):
         return self.date
-# x = datetime.now()
-# a = Event(x)
